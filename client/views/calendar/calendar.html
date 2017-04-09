@@ -1,0 +1,133 @@
+<div class="container">
+  <h2 class="text-center">{{ calendarTitle }}</h2>
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <div class="btn-group">
+        <md-button class="md-raised md-primary" mwl-date-modifier date="viewDate" decrement="calendarView" ng-click="cellIsOpen = false">Previous</md-button>
+        <md-button class="md-raised" mwl-date-modifier date="viewDate" set-to-today ng-click="cellIsOpen = false">Today</md-button>
+        <md-button class="md-raised md-primary" mwl-date-modifier date="viewDate" increment="calendarView" ng-click="cellIsOpen = false">Next</md-button>
+      </div>
+    </div>
+    <br class="visible-xs visible-sm">
+    <div class="col-md-6 text-center">
+      <div class="btn-group">
+        <md-button class="md-raised md-primary" ng-model="calendarView" uib-btn-radio="'year'" ng-click="cellIsOpen = false">Year</md-button>
+        <md-button class="md-raised md-primary" ng-model="calendarView" uib-btn-radio="'month'" ng-click="cellIsOpen = false">Month</md-button>
+        <md-button class="md-raised md-primary" ng-model="calendarView" uib-btn-radio="'week'" ng-click="cellIsOpen = false">Week</md-button>
+        <md-button class="md-raised md-primary" ng-model="calendarView" uib-btn-radio="'day'" ng-click="cellIsOpen = false">Day</md-button>
+      </div>
+    </div>
+  </div>
+  <br>
+  <mwl-calendar events="events" view="calendarView" view-title="calendarTitle" view-date="viewDate" on-event-click="" on-event-times-changed="calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd" cell-is-open="cellIsOpen" day-view-start="00:00" day-view-end="24:00" day-view-split="30" cell-modifier="modifyCell(calendarCell)" cell-auto-open-disabled="true" on-timespan-click="timespanClicked(calendarDate, calendarCell)"></mwl-calendar>
+  <br><br><br>
+
+   <md-content layout-padding>
+    <div>
+      <form name="newEvent">
+        <fieldset>
+        <legend><h3>Add New Event</h3></legend>
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Title</label>
+            <input ng-model="newTitle" placeholder="New Event Title" required="" ">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Venue</label>
+            <input ng-model="newVenue" placeholder="Event Venue">
+          </md-input-container>
+        </div>
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime" placeholder="Starting Time" show-todays-date="" max-date="newEndsAt" ng-model="newStartsAt" class="md-input" readonly="readonly" >
+          </md-input-container >
+          <md-input-container class="md-block" flex-gt-xs>
+            <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime" placeholder="Ending Time" show-todays-date="" min-date="newStartsAt" ng-model="newEndsAt" class="md-input" readonly="readonly" >
+          </md-input-container>
+        </div>
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Primary Color</label>
+            <div md-color-picker ng-model="newColorPrimary"></div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Secondary Color</label>
+            <div md-color-picker ng-model="newColorSecondary"></div>
+          </md-input-container>
+        </div>
+        <md-input-container class="md-block">
+          <label>Description</label>
+          <textarea ng-model="newDescription" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+        <md-button ng-click="addEvent()" type="submit" class="md-raised md-primary">&nbsp; Add New Event &nbsp;</md-button>
+        </fieldset>
+      </form>
+    </div>
+  </md-content>
+
+  <form>
+    <fieldset>
+      <legend>
+        <h3>Edit events</h3>
+      </legend>
+    </fieldset>
+  </form>
+  <div class="clearfix"></div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Venue</th>
+        <th>Color</th>
+        <th>Starting Time</th>
+        <th>Ending Time</th>
+        <th>Description</th>
+        <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="event in events track by $index">
+        <td>
+          <md-input-container class="md-block" flex-gt-xs>
+            <input type="text" ng-model="event.title" placeholder="Event Title">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container class="md-block" flex-gt-xs>
+            <input type="text" ng-model="event.venue" placeholder="Venue">
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Primary</label>
+            <div md-color-picker ng-model="event.color.primary"></div>
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-xs>
+            <label>Secondary</label>
+            <div md-color-picker ng-model="event.color.secondary"></div>
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container class="md-block" flex-gt-xs>
+            <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime" placeholder="Starting Time" show-todays-date="" max-date="event.endsAt" ng-model="event.startsAt" class="md-input" readonly="readonly">
+          </md-input-container >
+        </td>
+        <td>
+          <md-input-container class="md-block" flex-gt-xs>
+            <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime" placeholder="Starting Time" show-todays-date="" min-date="event.startsAt" ng-model="event.endsAt" class="md-input" readonly="readonly">
+          </md-input-container >
+        </td>
+        <td>
+          <md-input-container class="md-block" flex-gt-xs>
+            <textarea ng-model="event.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+          </md-input-container>
+        </td>
+        <td>
+          <md-button class="md-raised" style="background-color:lightgreen" ng-click="eventUpdate(event)">Update</md-button>
+          <br><br>
+          <md-button class="md-raised md-warn" ng-click="eventDelete(event._id, $index)">Delete</md-button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

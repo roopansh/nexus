@@ -1,0 +1,10 @@
+# Dependencies
+node_modules/
+
+# Misc
+client/public/*
+npm-debug.log
+TODO.txt
+csr.pem
+ssl.pem
+ssl.crt

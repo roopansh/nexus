@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="nexus">
+<head>  
+	<meta charset="utf-8">
+	<title>Nexus</title>
+	<base href="/">
+	<style type="text/css">
+		* {
+			margin: 0;
+		}
+		[ng-click] {
+      		cursor: pointer;
+    	}
+	</style>
+</head>
+<body>
+	<!-- Our views will go here -->
+	<div ui-view style="display: flex; flex-direction: row; height: 100vh; width: 100%;"></div>
+
+	<!-- Dependencies -->
+	<script type="text/javascript" src="./include/lodash.min.js"></script>
+	<script type="text/javascript" src="./include/socket-client.io.js"></script>
+	<script type="text/javascript" src="./include/peer.min.js"></script>
+	<script type="text/javascript" src="./include/ng-file-upload/ng-file-upload-shim.min.js"></script>
+	<script type="text/javascript" src="./include/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="./include/angular/angular.min.js"></script>
+	<script type="text/javascript" src="./include/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="./include/angular-socket-io/socket.min.js"></script>
+	<script type="text/javascript" src="./include/angular-animate/angular-animate.min.js"></script>
+	<script type="text/javascript" src="./include/angular-sanitize/angular-sanitize.min.js"></script>
+	<script type="text/javascript" src="./include/angular-nicescroll/jquery.nicescroll.min.js"></script>
+	<script type="text/javascript" src="./include/angular-nicescroll/angular-nicescroll.js"></script>
+	<script type="text/javascript" src="./include/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+	<script type="text/javascript" src="./include/ng-file-upload/ng-file-upload.min.js"></script>
+	<script type="text/javascript" src="./include/ng-img-crop/compile/minified/ng-img-crop.js"></script>
+	<script type="text/javascript" src="./include/angular-aria/angular-aria.min.js"></script>
+    <script type="text/javascript" src="./include/moment/moment.js"></script>
+    <script type='text/javascript' src='./include/tinycolor.js'></script>
+    <script type="text/javascript" src="./include/ng-material-datetimepicker/dist/angular-material-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="./include/md-color-picker/dist/mdColorPicker.min.js"></script>
+	<script type="text/javascript" src="./include/angular-bootstrap-calendar/dist/js/angular-bootstrap-calendar-tpls.min.js"></script>
+	<script type="text/javascript" src="./include/angular-material/angular-material.js"></script>
+    <link  rel="stylesheet" type="text/css" href="./include/angular-bootstrap-calendar/dist/css/angular-bootstrap-calendar.min.css">
+	<link rel="stylesheet" type="text/css" href="./include/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./include/angular-material/angular-material.css">
+	<link rel="stylesheet" type="text/css" href="./include/ng-img-crop/compile/minified/ng-img-crop.css">
+	<link rel="stylesheet" type="text/css" href="./include/ng-material-datetimepicker/dist/material-datetimepicker.min.css">
+	<link rel="stylesheet" type="text/css" href="./include/md-color-picker/dist/mdColorPicker.min.css">
+<link rel="stylesheet" type="text/css" href="./include/main.css">
+  	<script type="text/javascript" src="./main.js"></script>
+	
+	<!-- Services and controllers -->
+	<script type="text/javascript" src="./services/authservice.js"></script>
+	<script type="text/javascript" src="./services/chatsocket.js"></script>
+	<script type="text/javascript" src="./services/chatroom.js"></script>
+	<script type="text/javascript" src="./services/peerservice.js"></script>
+	<script type="text/javascript" src="./controllers/authcontrollers.js"></script>
+	<script type="text/javascript" src="./controllers/navbarcontroller.js"></script>
+	<script type="text/javascript" src="./controllers/usercontroller.js"></script>
+	<script type="text/javascript" src="./controllers/chatcontroller.js"></script>
+	<script type="text/javascript" src="./controllers/privatechatcontroller.js"></script>
+	<script type="text/javascript" src="./controllers/chatroomcontroller.js"></script>
+	<script type="text/javascript" src="./controllers/requestscontroller.js"></script>
+	<script type="text/javascript" src="./controllers/initialinfocontroller.js"></script>
+	<script type="text/javascript" src="./controllers/calendarcontroller.js"></script>
+
+</body>
+</html>
