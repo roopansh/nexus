@@ -5,13 +5,17 @@
       width:500px;
       height:350px;
     }
-  </style>
-<style type="text/css">
 
+    .card-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+    }
 </style>
-<div class="flexbox-parent">
-    <md-content layout="row" layout-align="center center" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form" style="min-height: 600px">
-        <md-card flex="grow" style="min-width: 500px;"> 
+<div class="card-container flexbox-parent">
+    <md-content layout="row" layout-align="center center" layout-padding="layout-padding" ng-cloak="ng-cloak" class="login-form" style="min-height: 600px; padding-top: 550px">
+        <md-card flex="grow" style="min-width: 500px;">
             <md-toolbar>
                 <div class="md-toolbar-tools">
                     <h2><span>User Details</span></h2>
@@ -34,7 +38,6 @@
                             <div ng-message="required" class="my-message">Please enter your Last Name.</div>
                         </div>
                     </md-input-container>
-                    <!--
                     <md-input-container class="md-block">
                         <label>Roll Number</label>
                         <input type="text" name="rollNumber" ng-model="rollNumber" placeholder="170101001" required=""/>
@@ -42,7 +45,6 @@
                             <div ng-message="required" class="my-message">Please enter your Roll Name.</div>
                         </div>
                     </md-input-container>
-                    -->
                     <md-input-container class="md-block">
                       <md-radio-group ng-model="gender" layout="row">
                         <md-radio-button value="Male" class="md-primary"> Male </md-radio-button>
