@@ -33,3 +33,21 @@ $ sudo npm install --save
 $ sudo npm install -g nodemon
 $ nodemon server.js
 ```
+
+## ScreenShots
+#### Login
+![Login Page](/Screenshots/login.png "Login Page")
+#### First time user details set up
+![Initial Details](/Screenshots/details.png "Initial Details")
+#### Uploading profile pic
+![Profile Pic Upload](/Screenshots/profilepicupload.png "Profile Pic Upload")
+#### Personal Messaging
+![Personal Message](/Screenshots/personalmessage.png "Personal Message")
+#### Search bar
+![Search](/Screenshots/search.png "Search")
+#### Creating new room for group chat
+![Room Create](/Screenshots/roomcreate.png "Room Create")
+#### Add user to the new room
+![Room Add user](/Screenshots/addpeople.png "Room Add user")
+#### Room chats
+![Room Chat](/Screenshots/roomchat.png "Room Chat")
